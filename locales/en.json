@@ -1,3 +1,28 @@
 {
-  "Global": {}
+  "Global": {
+    "login": "Login",
+    "no-account": "No account?",
+    "register-here": "Register here",
+    "register": "Register",
+    "have-account": "Have an account?",
+    "login-here": "Login here",
+    "back": "Back",
+    "enter-username-email": "Enter username/email",
+    "enter-password": "Enter password",
+    "enter-email": "Enter Email",
+    "create-username": "Create Username",
+    "create-password": "Create Password",
+    "confirm-passowrd": "Confirm Pasword",
+    "logout": "Logout",
+    "interest": "Interest",
+    "add-image": "Add Image",
+    "about": "About",
+    "birthday": "Birthday",
+    "horoscope": "Horoscope",
+    "zodiac": "Zodiac",
+    "height": "Height",
+    "weight": "Weight",
+    "save": "Save",
+    "save-update": "Save & Update"
+  }
 }

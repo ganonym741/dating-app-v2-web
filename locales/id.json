@@ -1,3 +1,28 @@
 {
-  "Global": {}
+  "Global": {
+    "login": "Masuk",
+    "no-account": "Tidak punya akun?",
+    "register-here": "Registrasi disini",
+    "register": "Registrasi",
+    "have-account": "Punya akun?",
+    "login-here": "Masuk disini",
+    "back": "Kembali",
+    "enter-username-email": "Masukkan username/email",
+    "enter-password": "Masukkan password",
+    "enter-email": "Masukkan Email",
+    "create-username": "Buat Username",
+    "create-password": "Buat Password",
+    "confirm-passowrd": "Konfirmasi Pasword",
+    "logout": "Keluar",
+    "interest": "Hobi",
+    "add-image": "Tambah foto",
+    "about": "Tentang",
+    "birthday": "Tanggal lahir",
+    "horoscope": "Horoscope",
+    "zodiac": "Zodiak",
+    "height": "Tinggi",
+    "weight": "Berat",
+    "save": "Simpan",
+    "save-update": "Simpan & Perbarui"
+  }
 }
