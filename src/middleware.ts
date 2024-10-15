@@ -8,6 +8,7 @@ import { getSession } from './utils/credentials';
 
 const publicPages = [
   '/login',
+  '/register',
   '/error/*',
 ];
 
@@ -23,7 +24,7 @@ export async function middleware(request: NextRequest) {
 
   const isPublicPage = publicPathnameRegex.test(request.nextUrl.pathname);
 
-  if (!isPublicPage && !session.jwt.token) {
+  if (!isPublicPage && !session?.jwt?.token) {
     request.nextUrl.pathname = '/login';
   }
 

@@ -1,4 +1,4 @@
-import ChevronLeftIcon from '@icons/ChevronLeft.svg';
+import { ReactComponent as ChevronLeftIcon } from '@icons/ChevronLeft.svg';
 
 type BackButtonProps = {
   label?: string;
@@ -9,7 +9,7 @@ const BackButton = ({ label = 'Back', onClick }: BackButtonProps) => {
   return (
     <button
       aria-label="Back"
-      className="flex items-center gap-2.5"
+      className="flex items-center gap-2"
       onClick={onClick}
     >
       <ChevronLeftIcon />

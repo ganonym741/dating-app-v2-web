@@ -12,7 +12,7 @@ export default function AuthLayout({ children, params: { locale } }: Props) {
 
   return (
     <div
-      className="w-full h-full flex flex-col transition-all duration-300"
+      className="w-full lg:max-w-[600px] lg:rounded-[30px] mx-auto mt-[2.5vh] h-[95vh] flex flex-col transition-all duration-300"
       style={{
         background: `radial-gradient(124.23% 171.99% at 100% -3.39%, #1F4247 0%, #0D1D23 56.18%, #09141A 100%)`,
       }}

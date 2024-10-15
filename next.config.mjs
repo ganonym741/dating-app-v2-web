@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 /** @type {import('next').NextConfig} */
-const withNextIntl = require('next-intl/plugin')();
+import withNextIntl from 'next-intl/plugin';
+import nextPWA from 'next-pwa';
 
 const nextConfig = {
   reactStrictMode: true,
@@ -17,10 +18,17 @@ const nextConfig = {
   },
 
   webpack: (config) => {
-    config.resolve.alias['@'] = path.resolve('./');
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      issuer: /\.[jt]sx?$/,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            exportType: 'named',
+          },
+        },
+      ],
     });
 
     return config;
@@ -35,16 +43,13 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  env: {
-    APP_NAME: env('NEXT_PUBLIC_APP_NAME'),
-    APP_DESCRIPTION: env('NEXT_PUBLIC_APP_DESCRIPTION'),
-  },
 };
 
 const withPWA = nextPWA({
   dest: 'public',
+  register: true,
+  skipWaiting: true,
   cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
 });
 
-export default withPWA(withNextIntl(nextConfig));
+export default withPWA(withNextIntl()(nextConfig));

@@ -4,53 +4,14 @@
 
 @layer base {
   :root {
-    --background: hsl(0deg 0% 100%);
-    --foreground: hsl(240deg 10% 3.9%);
-    --card: hsl(0deg 0% 100%);
-    --card-foreground: hsl(240deg 10% 3.9%);
-    --popover: hsl(0deg 0% 100%);
-    --popover-foreground: hsl(240deg 10% 3.9%);
-    --primary: hsl(245deg 82% 67%);
-    --primary-foreground: hsl(210deg 15% 95%);
-    --secondary: hsl(240deg 4.8% 95.9%);
-    --secondary-foreground: hsl(240deg 5.9% 10%);
-    --muted: hsl(240deg 4.8% 95.9%);
-    --muted-foreground: hsl(240deg 3.8% 46.1%);
-    --accent: hsl(240deg 4.8% 95.9%);
-    --accent-foreground: hsl(240deg 5.9% 10%);
-    --destructive: hsl(0deg 84.2% 60.2%);
-    --destructive-foreground: hsl(0deg 0% 98%);
-    --border: hsl(0deg 0% 61%);
-    --input: hsl(240deg 5.9% 90%);
-    --ring: hsl(142.1deg 76.2% 45%);
-    --radius: hsl(0.3rem);
-    --success: hsl(150deg 100% 27%);
-    --negative: hsl(20deg 14.3% 4.1%);
+    --background: #1E1E1E;
+    --foreground: #1A3636;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --background: hsl(20deg 14.3% 4.1%);
-      --foreground: hsl(0deg 0% 95%);
-      --card: hsl(24deg 9.8% 10%);
-      --card-foreground: hsl(0deg 0% 95%);
-      --popover: hsl(0deg 0% 9%);
-      --popover-foreground: hsl(0deg 0% 95%);
-      --primary: hsl(65deg 65% 55%);
-      --primary-foreground: hsl(60deg 78% 62%);
-      --secondary: hsl(240deg 3.7% 15.9%);
-      --secondary-foreground: hsl(0deg 0% 98%);
-      --muted: hsl(0deg 0% 15%);
-      --muted-foreground: hsl(240deg 5% 64.9%);
-      --accent: hsl(12deg 6.5% 15.1%);
-      --accent-foreground: hsl(0deg 0% 98%);
-      --destructive: hsl(0deg 62.8% 30.6%);
-      --destructive-foreground: hsl(0deg 85.7% 97.3%);
-      --border: hsl(0deg 0% 61%);
-      --input: hsl(240deg 3.7% 15.9%);
-      --ring: hsl(142.4deg 71.8% 40%);
-      --success: hsl(1330deg 70% 60%);
-      --negative: hsl(0deg 0% 100%);
+      --background: #1E1E1E;
+      --foreground: #1A3636;
     }
   }
 
@@ -58,6 +19,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-size: 87.5%;
   }
 
   @layer utilities {

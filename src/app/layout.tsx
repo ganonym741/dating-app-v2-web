@@ -1,13 +1,9 @@
-import { Inter } from 'next/font/google';
-
 import type { Metadata } from 'next';
 
 import './globals.css';
 import { ThemeProvider } from '@/components/provider/theme-provider';
 import QueryProvider from '@/components/provider/query-provider';
 import { Toaster } from '@/components/ui/sonner';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -21,9 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={'w-screen h-screen bg-background fixed inset-0'}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <div>{children}</div>
+          </QueryProvider>
           <Toaster />
         </ThemeProvider>
       </body>

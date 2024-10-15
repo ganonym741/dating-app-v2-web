@@ -4,13 +4,13 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 
 import User from '../service/user';
 import type { UserProps } from '@/types/user';
-import type { GetManyUserReqDto } from '../dto/user.dto';
+import type { GetManyUserReqDto, RegisterUserDto } from '../dto/user.dto';
 import { queryClient } from '@/components/provider/query-provider';
 import { logout } from '@/utils/credentials';
 
 export const useRegister = () => {
   return useMutation({
-    mutationFn: async (payload: UserProps) => await User.register(payload),
+    mutationFn: async (payload: RegisterUserDto) => await User.register(payload),
     onSuccess() {
         redirect('/login');
     }

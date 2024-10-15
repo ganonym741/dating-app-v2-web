@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import Auth from '../service/auth';
 import { logout, setLogin, setNewToken } from '@/utils/credentials';
-import type { LoginReqDto } from '@/types/auth';
+import type { LoginReqDto } from '@/query/dto/auth.dto';
 
 export const useAuthSignin = () => {
   return useMutation({

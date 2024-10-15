@@ -1,43 +1,54 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
+
 import { useTranslations } from 'next-intl';
+import { useForm } from 'react-hook-form';
 
 import BackButton from '@/components/Common/BackButon';
 import RainbowButton from '@/components/Common/RainbowButton';
 import GoldenText from '@/components/Common/GoldenText';
-import { PasswordField, TextField } from '@/components/Inputs';
-import { useState } from 'react';
+import { useAuthSignin } from '@/query/query/auth';
+import type { LoginReqDto } from '@/query/dto/auth.dto';
+import TextField from '@/components/Inputs/TextField';
 
 export default function LoginPage() {
   const router = useRouter();
   const t = useTranslations('Global');
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { mutate: login, isPending } = useAuthSignin();
 
-  const doLogin = () => {};
+  const { getValues, control, formState } = useForm<LoginReqDto>();
+
+  const doLogin = () => {
+    login({
+      username: getValues('username'),
+      password: getValues('password'),
+    });
+  };
 
   return (
-    <>
-      <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center">
+    <div className="flex flex-col py-[3em] px-2 text-white h-full">
+      <div className="flex items-center justify-start">
         <BackButton onClick={() => router.back()} label={t('back')} />
       </div>
-      <div className="flex-1 flex flex-col justify-center px-[18px]">
-        <h3 className="mb-[25px]">{t('login')}</h3>
+      <div className="flex flex-col justify-center h-full px-4">
+        <h3 className="mb-7 ml-7 text-md font-bold">{t('login')}</h3>
 
         <div className="flex flex-col gap-4 mb-8">
           <TextField
-            value={email}
+            control={control}
+            name={'username'}
+            rules={{ required: 'Username is required' }}
             placeholder={t('enter-username-email')}
-            large
-            onInput={(newVal) => setEmail(newVal)}
           />
 
-          <PasswordField
-            value={password}
+          <TextField
+            control={control}
+            name={'password'}
+            type={'password'}
             placeholder={t('enter-password')}
-            large
-            onInput={(newVal) => setPassword(newVal)}
+            rules={{ required: 'Password is required' }}
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
               e.key === 'Enter' && doLogin();
             }}
@@ -45,14 +56,14 @@ export default function LoginPage() {
         </div>
 
         <RainbowButton
-          disabled={false || !email || !password}
-          isLoading={false}
-          onClick={() => {}}
+          disabled={Object.keys(formState.errors).length > 0 || isPending}
+          isLoading={isPending}
+          onClick={doLogin}
         >
           {t('login')}
         </RainbowButton>
 
-        <p className="mt-[52px] flex items-center justify-center gap-1 text-[13px] font-medium">
+        <p className="mt-[52px] flex items-center justify-center gap-1 text-sm font-medium">
           <span>{t('no-account')}</span>
           <GoldenText
             className="cursor-pointer"
@@ -62,6 +73,6 @@ export default function LoginPage() {
           </GoldenText>
         </p>
       </div>
-    </>
+    </div>
   );
 }

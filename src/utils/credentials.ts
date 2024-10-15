@@ -5,9 +5,10 @@ import { redirect } from 'next/navigation';
 
 import { getIronSession } from 'iron-session';
 
-import type { LoginResDto, TokenDto } from '@/types/auth';
+import type { TokenDto } from '@/types/auth';
 import type { SessionData} from '@/types/session';
 import { sessionOptions } from '@/types/session';
+import type { LoginResDto } from '@/query/dto/auth.dto';
 
 export const getSession = async () => {
   const session = await getIronSession<SessionData>(cookies(), sessionOptions);
